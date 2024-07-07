@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMissHer Server</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .content {
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        
+        .form-container {
+            max-width: 500px; /* Genişlik artırıldı */
+            margin: 0 auto; /* Ortalıyor */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px; /* Padding artırıldı */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .field {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        
+        .field input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1em;
+            border-bottom: 2px solid #fff;
+        }
+        
+        .field input::placeholder {
+            color: #fff;
+            opacity: 0.7;
+        }
+        
+        .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .btn-layer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .btn-layer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.5s ease-in-out;
+        }
+        
+        .btn:hover .btn-layer:before {
+            left: 0;
+        }
+        
+        .pass-link {
+            margin-top: 10px;
+        }
+        
+        .pass-link a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+        
+        .pass-link a:hover {
+            color: #ff4b2b;
+        }
+    </style>
+</head>
+<body>
+    
+    <video autoplay muted loop>
+        <source src="music/sakura.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="content">
+        <div class="form-container">
+            <h1>IMissHer Sunucusuna Giriş Yap</h1>
+            <form action="#" method="post">
+                <div class="field">
+                    <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="Şifre" required>
+                </div>
+                <div class="pass-link">
+                    <a href="#">Şifreni mi Unuttun?</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Giriş Yap">
+                </div>
+                <div class="signup-link">
+                    Bir hesabın yok mu? <a href="#">Kaydol</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const signupLink = document.querySelector(".signup-link a");
+        signupLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("Redirect to Sign Up page or show Sign Up form.");
+            // Burada Signup sayfasına yönlendirme veya Signup formunu gösterme işlemleri yapılabilir.
+        });
+    </script>
+
+</body>
+</html>
