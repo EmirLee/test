@@ -128,12 +128,12 @@
         Your browser does not support the video tag.
     </video>
 
-    <audio autoplay loop>
-        <source src="https://vgmsite.com/soundtracks/minecraft/aoqfyvljpe/1-01.%20Key.mp3" type="audio/mp3">
+    <audio id="background-audio" loop>
+        <source src="music/key.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
-    <div class="content">
+    <div class="content" id="content">
         <div class="form-container">
             <h1>IMissHer Sunucusuna Giriş Yap</h1>
             <form action="#" method="post">
@@ -158,11 +158,27 @@
     </div>
 
     <script>
+        const audio = document.getElementById("background-audio");
+
+        // Sayfa yüklendikten sonra kullanıcı tıklamasını bekle
+        document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("click", function() {
+                audio.play().catch(error => {
+                    console.error("Ses dosyası çalınamadı:", error);
+                });
+            });
+        });
+
         const signupLink = document.querySelector(".signup-link a");
         signupLink.addEventListener("click", function(event) {
             event.preventDefault();
             alert("Redirect to Sign Up page or show Sign Up form.");
             // Burada Signup sayfasına yönlendirme veya Signup formunu gösterme işlemleri yapılabilir.
+        });
+
+        // Ses dosyasının yüklenip yüklenmediğini kontrol etmek için
+        audio.addEventListener("error", function(event) {
+            console.error("Ses dosyası yüklenemedi:", event);
         });
     </script>
 
